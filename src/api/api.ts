@@ -2,12 +2,12 @@ import axios from 'axios';
 
 import { Routes } from './routes';
 
-interface MAuthToken {
+export interface MAuthToken {
   username: string;
   password: string;
 }
 
-interface MUser {
+export interface MUser {
   id?: number;
   username: string;
   first_name?: string;
