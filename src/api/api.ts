@@ -14,8 +14,8 @@ export interface MUser {
   last_name?: string;
   password: string;
   is_active: boolean;
-  last_login?: string;
-  is_superuser?: boolean;
+  readonly last_login?: string;
+  readonly is_superuser?: boolean;
 }
 
 export const getAuthToken = async (
