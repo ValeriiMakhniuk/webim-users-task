@@ -3,6 +3,6 @@
   "rulesDirectory": ["tslint-plugin-prettier"],
   "rules": {
     "prettier": [true, "./.prettierrc"],
-    "interface-name": false
+    "jsx-no-lambda": false
   }
 }
