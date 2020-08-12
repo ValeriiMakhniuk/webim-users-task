@@ -37,7 +37,7 @@ export const getUsers = async (token: string): Promise<MUser[]> => {
 };
 
 export const getUser = async (
-  userId: string,
+  userId: number,
   token: string
 ): Promise<MUser> => {
   return await axios
@@ -63,7 +63,7 @@ export const postUser = async (
 };
 
 export const putUser = async (
-  userId: string,
+  userId: number,
   userData: MUser,
   token: string
 ): Promise<MUser> => {
@@ -77,7 +77,7 @@ export const putUser = async (
 };
 
 export const patchUser = async (
-  userId: string,
+  userId: number,
   userData: MUser,
   token: string
 ): Promise<MUser> => {
