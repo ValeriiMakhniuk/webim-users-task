@@ -8,7 +8,7 @@ export interface MAuthToken {
 }
 
 export interface MUser {
-  id?: number;
+  id: number;
   username: string;
   first_name?: string;
   last_name?: string;
@@ -49,42 +49,56 @@ export const getUser = async (
     .then((res) => res.data);
 };
 
-export const postUser = async (userData: MUser, token: string) => {
-  await axios.post(Routes.Users, userData, {
-    headers: {
-      Authorization: `Token ${token}`,
-    },
-  });
+export const postUser = async (
+  userData: MUser,
+  token: string
+): Promise<MUser> => {
+  return await axios
+    .post(Routes.Users, userData, {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    })
+    .then((res) => res.data);
 };
 
 export const putUser = async (
   userId: string,
   userData: MUser,
   token: string
-) => {
-  await axios.put(`${Routes.Users}/${userId}/`, userData, {
-    headers: {
-      Authorization: `Token ${token}`,
-    },
-  });
+): Promise<MUser> => {
+  return await axios
+    .put(`${Routes.Users}/${userId}/`, userData, {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    })
+    .then((res) => res.data);
 };
 
 export const patchUser = async (
   userId: string,
   userData: MUser,
   token: string
-) => {
-  await axios.patch(`${Routes.Users}/${userId}/`, userData, {
-    headers: {
-      Authorization: `Token ${token}`,
-    },
-  });
+): Promise<MUser> => {
+  return await axios
+    .patch(`${Routes.Users}/${userId}/`, userData, {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    })
+    .then((res) => res.data);
 };
 
-export const deleteUser = async (userId: string, token: string) => {
-  await axios.delete(`${Routes.Users}/${userId}/`, {
-    headers: {
-      Authorization: `Token ${token}`,
-    },
-  });
+export const deleteUser = async (
+  userId: number,
+  token: string
+): Promise<number> => {
+  return await axios
+    .delete(`${Routes.Users}/${userId}/`, {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    })
+    .then(() => userId);
 };
