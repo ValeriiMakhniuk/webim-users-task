@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5eabf227ce7f1ca7cd0e30fbb446d0df",
+    "revision": "9ad0553c9e771ca4ec7f0bd3fb34949c",
     "url": "/webim-users-task/index.html"
   },
   {
