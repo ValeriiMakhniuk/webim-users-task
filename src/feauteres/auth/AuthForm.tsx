@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from './authSlice';
@@ -35,8 +35,8 @@ export const AuthForm: React.FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const error = useSelector((state: RootState) => {
-    return state.auth.error;
+  const { error, isAuthenticated } = useSelector((state: RootState) => {
+    return state.auth;
   });
 
   const formik = useFormik({
@@ -45,9 +45,9 @@ export const AuthForm: React.FC = () => {
       password: '',
     },
     validationSchema: AuthUserSchema,
-    onSubmit(values: FormikValues, { setSubmitting }) {
+    onSubmit(values: FormikValues, { resetForm }) {
       Promise.resolve(dispatch(authenticate(values)))
-        .then(() => setSubmitting(false))
+        .then(() => resetForm())
         .then(() => {
           if (!error) {
             history.push('/');
@@ -56,6 +56,9 @@ export const AuthForm: React.FC = () => {
     },
   });
 
+  if (isAuthenticated) {
+    return <Redirect to='/' />;
+  }
   // react-bootstrap bug that Form components's submit event Type is React.FormEvent<HTMLElement>
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     formik.handleSubmit(e);
@@ -72,7 +75,7 @@ export const AuthForm: React.FC = () => {
             <Card.Title as='h3'>Sign in</Card.Title>
             {error && <Alert variant='danger'>{error}</Alert>}
             <Form noValidate={true} onSubmit={handleSubmit}>
-              <Form.Group controlId='login'>
+              <Form.Group controlId='username'>
                 <Form.Label>Username</Form.Label>
                 <Form.Control
                   type='text'
@@ -104,7 +107,9 @@ export const AuthForm: React.FC = () => {
               <Button
                 variant='primary'
                 type='submit'
-                disabled={formik.isSubmitting}
+                disabled={
+                  !(formik.isValid && formik.dirty) || formik.isSubmitting
+                }
               >
                 Submit
               </Button>
