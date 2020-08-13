@@ -14,8 +14,16 @@ export interface MUser {
   last_name?: string;
   password: string;
   is_active: boolean;
-  readonly last_login?: string;
-  readonly is_superuser?: boolean;
+  last_login?: string;
+  is_superuser?: boolean;
+}
+
+export interface MUserData {
+  username: string;
+  first_name?: string;
+  last_name?: string;
+  password: string;
+  is_active: boolean;
 }
 
 export const getAuthToken = async (
@@ -23,12 +31,12 @@ export const getAuthToken = async (
 ): Promise<string> => {
   return await axios
     .post(Routes.AuthToken, credentials)
-    .then((res) => res.data);
+    .then((res) => res.data.token);
 };
 
 export const getUsers = async (token: string): Promise<MUser[]> => {
   return await axios
-    .get(Routes.Users, {
+    .get(`${Routes.Users}/`, {
       headers: {
         Authorization: `Token ${token}`,
       },
@@ -50,13 +58,14 @@ export const getUser = async (
 };
 
 export const postUser = async (
-  userData: MUser,
+  userData: MUserData,
   token: string
 ): Promise<MUser> => {
   return await axios
-    .post(Routes.Users, userData, {
+    .post(`${Routes.Users}/`, userData, {
       headers: {
         Authorization: `Token ${token}`,
+        'Content-Type': 'application/json',
       },
     })
     .then((res) => res.data);
@@ -64,13 +73,14 @@ export const postUser = async (
 
 export const putUser = async (
   userId: number,
-  userData: MUser,
+  userData: MUserData,
   token: string
 ): Promise<MUser> => {
   return await axios
     .put(`${Routes.Users}/${userId}/`, userData, {
       headers: {
         Authorization: `Token ${token}`,
+        'Content-Type': 'application/json',
       },
     })
     .then((res) => res.data);
@@ -78,13 +88,14 @@ export const putUser = async (
 
 export const patchUser = async (
   userId: number,
-  userData: MUser,
+  userData: MUserData,
   token: string
 ): Promise<MUser> => {
   return await axios
     .patch(`${Routes.Users}/${userId}/`, userData, {
       headers: {
         Authorization: `Token ${token}`,
+        'Content-Type': 'application/json',
       },
     })
     .then((res) => res.data);
