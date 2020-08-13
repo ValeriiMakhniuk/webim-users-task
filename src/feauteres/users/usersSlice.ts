@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import {
   MUser,
+  MUserData,
   getUsers as getUsersFromApi,
   getUser as getUserFromApi,
   postUser as postUserToApi,
@@ -128,7 +129,7 @@ export const fetchUsers = (token: string): AppThunk => async (dispatch) => {
     const fetchedUsers = await getUsersFromApi(token);
     dispatch(getUsersSuccess(fetchedUsers));
   } catch (err) {
-    dispatch(getUsersFailure(err.message()));
+    dispatch(getUsersFailure(err.message));
   }
 };
 
@@ -140,25 +141,26 @@ export const fetchUser = (userId: number, token: string): AppThunk => async (
     const user = await getUserFromApi(userId, token);
     dispatch(getUserSuccess(user));
   } catch (err) {
-    dispatch(getUserFailure(err.message()));
+    dispatch(getUserFailure(err.message));
   }
 };
 
-export const postUser = (token: string, userData: MUser): AppThunk => async (
-  dispatch
-) => {
+export const postUser = (
+  token: string,
+  userData: MUserData
+): AppThunk => async (dispatch) => {
   try {
     dispatch(postUserStart());
     const user = await postUserToApi(userData, token);
     dispatch(postUserSucess(user));
   } catch (err) {
-    dispatch(postUserFailure(err.message()));
+    dispatch(postUserFailure(err.message));
   }
 };
 
 export const putUser = (
   userId: number,
-  userData: MUser,
+  userData: MUserData,
   token: string
 ): AppThunk => async (dispatch) => {
   try {
@@ -166,13 +168,13 @@ export const putUser = (
     const user = await putUserToApi(userId, userData, token);
     dispatch(putUserSucess(user));
   } catch (err) {
-    dispatch(putUserFailure(err.message()));
+    dispatch(putUserFailure(err.message));
   }
 };
 
 export const patchUser = (
   userId: number,
-  userData: MUser,
+  userData: MUserData,
   token: string
 ): AppThunk => async (dispatch) => {
   try {
@@ -180,7 +182,7 @@ export const patchUser = (
     const user = await pathUserToApi(userId, userData, token);
     dispatch(patchUserSucess(user));
   } catch (err) {
-    dispatch(patchUserFailure(err.message()));
+    dispatch(patchUserFailure(err.message));
   }
 };
 
@@ -192,6 +194,6 @@ export const deleteUser = (userId: number, token: string): AppThunk => async (
     const deletedUserId = await deleteUserFromApi(userId, token);
     dispatch(deleteUserSucess(deletedUserId));
   } catch (err) {
-    dispatch(deleteUserFailure(err.message()));
+    dispatch(deleteUserFailure(err.message));
   }
 };
