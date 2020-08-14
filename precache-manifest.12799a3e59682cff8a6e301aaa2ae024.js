@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2437cbbbdf62496147a3c7a6fbdb8167",
+    "revision": "4848f6ac25b29252d2c427e8ac03066b",
     "url": "/webim-users-task/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/webim-users-task/static/css/2.3aa9a6e6.chunk.css"
   },
   {
-    "revision": "19975c78ebcc630f3288",
+    "revision": "0b1079a6c992452ad7f0",
     "url": "/webim-users-task/static/css/main.a8b6d7dc.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/webim-users-task/static/js/2.8c09dc5f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "19975c78ebcc630f3288",
-    "url": "/webim-users-task/static/js/main.e7aa7c9b.chunk.js"
+    "revision": "0b1079a6c992452ad7f0",
+    "url": "/webim-users-task/static/js/main.388e4ed4.chunk.js"
   },
   {
     "revision": "627e90e86d92d81f3508",
