@@ -13,7 +13,7 @@ export const App: React.FC = () => {
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
   return (
-    <Container fluid={true} as='main' className='vh-100'>
+    <Container fluid={true} as='main' className='d-flex flex-column h-100'>
       <Route exact={true} path='/'>
         {!isAuthenticated ? <Redirect to='/login' /> : <UsersPage />}
       </Route>
