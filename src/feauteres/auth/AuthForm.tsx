@@ -65,11 +65,8 @@ export const AuthForm: React.FC = () => {
   };
 
   return (
-    <Row
-      as='section'
-      className='justify-content-center h-100 align-items-center'
-    >
-      <Col xl={4} lg={6} md={8} sm={8} xs={12}>
+    <Row as='section' className='h-100'>
+      <Col xl={4} lg={6} md={8} sm={8} className='m-auto'>
         <Card>
           <Card.Body>
             <Card.Title as='h3'>Sign in</Card.Title>
