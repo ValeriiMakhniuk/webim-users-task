@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4848f6ac25b29252d2c427e8ac03066b",
+    "revision": "3dcf881c2d3e6a8bcfa6e89328162b6f",
     "url": "/webim-users-task/index.html"
   },
   {
-    "revision": "79fe4ccd8e45500c31f6",
+    "revision": "4076a7ab5fcd03284ef9",
     "url": "/webim-users-task/static/css/2.3aa9a6e6.chunk.css"
   },
   {
-    "revision": "0b1079a6c992452ad7f0",
+    "revision": "72305f7c69bf56918183",
     "url": "/webim-users-task/static/css/main.a8b6d7dc.chunk.css"
   },
   {
-    "revision": "79fe4ccd8e45500c31f6",
-    "url": "/webim-users-task/static/js/2.8c09dc5f.chunk.js"
+    "revision": "4076a7ab5fcd03284ef9",
+    "url": "/webim-users-task/static/js/2.7d2a886a.chunk.js"
   },
   {
     "revision": "27f1c73f1dc921bc79aa41830d4cd146",
-    "url": "/webim-users-task/static/js/2.8c09dc5f.chunk.js.LICENSE.txt"
+    "url": "/webim-users-task/static/js/2.7d2a886a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0b1079a6c992452ad7f0",
-    "url": "/webim-users-task/static/js/main.388e4ed4.chunk.js"
+    "revision": "72305f7c69bf56918183",
+    "url": "/webim-users-task/static/js/main.7567bcc0.chunk.js"
   },
   {
     "revision": "627e90e86d92d81f3508",
