@@ -22,7 +22,7 @@ export interface MUserData {
   username: string;
   first_name?: string;
   last_name?: string;
-  password: string;
+  password?: string;
   is_active: boolean;
 }
 

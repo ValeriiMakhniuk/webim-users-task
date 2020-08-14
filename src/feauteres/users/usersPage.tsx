@@ -5,13 +5,11 @@ import { RootState } from '../../app/rootReducer';
 import { fetchUsers } from './usersSlice';
 
 import { UsersTable } from './usersTable';
-import { Row, Col, Card } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 export const UsersPage: React.FC = () => {
   const dispatch = useDispatch();
-  const { usersById, allIds, error: usersError, isLoading } = useSelector(
-    (state: RootState) => state.users
-  );
+  const { usersById, allIds } = useSelector((state: RootState) => state.users);
   const { token } = useSelector((state: RootState) => state.auth);
   const users = allIds.map((userId) => usersById[userId]);
 
@@ -19,7 +17,7 @@ export const UsersPage: React.FC = () => {
     if (token) {
       dispatch(fetchUsers(token));
     }
-  }, []);
+  }, [dispatch, token]);
 
   return (
     <Row as='section' className='h-100 pt-3'>
