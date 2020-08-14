@@ -47,23 +47,7 @@ export const UserEditForm: React.FC<UserEditFormProps> = ({
     isActive: user.is_active,
   });
 
-  // useEffect(() => {
-  //   const userData = {
-  //     username: user.first_name,
-  //     firstName: user.first_name,
-  //     lastName: user.last_name,
-  //     isActive: user.is_active,
-  //   };
-  //   setInitialValues(userData);
-  // }, [user]);
-
   const formik = useFormik({
-    // initialValues: {
-    //   username: user.username,
-    //   firstName: user.first_name,
-    //   lastName: user.last_name,
-    //   isActive: user.is_active,
-    // },
     initialValues,
     validationSchema: EditUserSchema,
     onSubmit(values: FormikValues, { setSubmitting, setStatus, setValues }) {
