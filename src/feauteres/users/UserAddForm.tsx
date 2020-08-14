@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useFormik } from 'formik';
 
@@ -46,10 +46,7 @@ interface UserAddFormProps {
   handleClose: () => void;
 }
 
-export const UserAddForm: React.FC<UserAddFormProps> = ({
-  handlePostUser,
-  handleClose,
-}) => {
+export const UserAddForm: React.FC<UserAddFormProps> = ({ handlePostUser }) => {
   const userError = useSelector((state: RootState) => {
     return state.users.error;
   });
@@ -79,7 +76,9 @@ export const UserAddForm: React.FC<UserAddFormProps> = ({
           }
         })
         .then(() => {
-          setTimeout(() => resetForm(), 2500);
+          setTimeout(() => {
+            resetForm();
+          }, 2500);
         });
     },
   });
@@ -88,10 +87,12 @@ export const UserAddForm: React.FC<UserAddFormProps> = ({
     formik.handleSubmit(e);
   };
 
+  const isUserAdded = formik.status && formik.status.type === 'sucess';
+
   return (
     <>
       {userError && <Alert variant='danger'>{userError}</Alert>}
-      {formik.status && formik.status.type === 'sucess' && (
+      {isUserAdded && (
         <Alert variant='success'>
           User <b>{formik.status.username}</b> has created
         </Alert>

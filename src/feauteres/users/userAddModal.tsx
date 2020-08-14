@@ -21,11 +21,7 @@ export const UserAddModal: React.FC<UserAddModal> = ({ handlePostUser }) => {
 
   return (
     <>
-      <Button
-        className='align-self-center'
-        variant='success'
-        onClick={handleClick}
-      >
+      <Button variant='success' onClick={handleClick}>
         Add User
       </Button>
       <Modal show={showModal} onHide={handleClose} centered={true}>

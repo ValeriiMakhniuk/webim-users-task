@@ -23,7 +23,7 @@ export const UsersPage: React.FC = () => {
 
   return (
     <Row as='section' className='h-100 pt-3'>
-      <Col className='d-flex flex-column'>
+      <Col className='text-center'>
         <UsersTable users={users} />
       </Col>
     </Row>
