@@ -1,4 +1,6 @@
 ## [Demo](https://valeriimakhniuk.github.io/webim-users-task/).
+> Username: test_super
+Password: Nf<U4f<rDbtDxAPn
 
 ## Используемые технологии
 * **React** для реактивного манипулирования DOM деревом
