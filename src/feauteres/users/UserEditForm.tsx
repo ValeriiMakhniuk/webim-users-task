@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { useFormik } from 'formik';
 
@@ -8,7 +8,6 @@ import * as yup from 'yup';
 
 import { CellActionProps } from './usersTable';
 import { MUserData } from '../../api/api';
-import { RootState } from '../../app/rootReducer';
 
 const EditUserSchema = yup.object({
   username: yup
