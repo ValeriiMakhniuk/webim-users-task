@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk } from './../../app/store';
 
+import store from 'store';
+
 import { getAuthToken, MAuthToken } from '../../api/api';
 
 interface AuthState {
@@ -44,6 +46,14 @@ const authSlice = createSlice({
       state.error = null;
       state.isAuthenticated = true;
       state.token = payload;
+
+      store.set('token', payload);
+    },
+    deauthenticate(state) {
+      state.isAuthenticated = false;
+      state.token = null;
+
+      store.remove('token');
     },
     authFailure: loadingFailure,
   },
@@ -51,7 +61,12 @@ const authSlice = createSlice({
 
 export const authReducer = authSlice.reducer;
 
-export const { authStart, authSucess, authFailure } = authSlice.actions;
+export const {
+  authStart,
+  authSucess,
+  authFailure,
+  deauthenticate,
+} = authSlice.actions;
 
 export const authenticate = (credentials: MAuthToken): AppThunk => async (
   dispatch
